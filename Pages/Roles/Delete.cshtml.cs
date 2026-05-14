@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Student_Senate_Task_Wheel.Data;
 using Student_Senate_Task_Wheel.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Student_Senate_Task_Wheel.Pages.Roles
 {
+    [Authorize]
     public class DeleteModel : PageModel
     {
         private readonly Student_Senate_Task_Wheel.Data.ApplicationDbContext _context;
