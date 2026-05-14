@@ -9,7 +9,7 @@ using Student_Senate_Task_Wheel.Data;
 using Student_Senate_Task_Wheel.Models;
 using Microsoft.AspNetCore.Authorization;
 
-namespace Student_Senate_Task_Wheel.Pages.DutyTasks
+namespace Student_Senate_Task_Wheel.Pages.Roles
 {
     public class IndexModel : PageModel
     {
@@ -20,12 +20,11 @@ namespace Student_Senate_Task_Wheel.Pages.DutyTasks
             _context = context;
         }
 
-        public IList<DutyTask> DutyTask { get;set; } = default!;
+        public IList<Role> Role { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            DutyTask = await _context.DutyTasks
-                .Include(d => d.Organization).ToListAsync();
+            Role = await _context.Roles.ToListAsync();
         }
     }
 }

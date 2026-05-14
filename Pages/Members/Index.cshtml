@@ -1,0 +1,48 @@
+﻿@page
+@model Student_Senate_Task_Wheel.Pages.Members.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Member[0].Organization)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Member[0].Role)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Member[0].IsOrgAdmin)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Member) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Organization!.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role!.RoleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsOrgAdmin)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.MemberId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.MemberId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.MemberId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

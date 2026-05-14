@@ -7,8 +7,8 @@ namespace Student_Senate_Task_Wheel.Models
             public int RoleId { get; set; }
 
             [Required]
-            public string RoleName { get; set; }
+            public string? RoleName { get; set; }
 
-            public ICollection<Member> Members { get; set; }
+            public ICollection<Member>? Members { get; set; }
         }
 }

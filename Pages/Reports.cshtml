@@ -1,0 +1,55 @@
+﻿@page
+@model Student_Senate_Task_Wheel.Pages.ReportsModel
+@{
+}
+
+<h2>Reports</h2>
+
+<h3>Completion Rate by Member</h3>
+<table class="table">
+    <tr>
+        <th>Member</th>
+        <th>Total Tasks</th>
+        <th>Completed</th>
+    </tr>
+@foreach (var item in Model.CompletionRates)
+{
+    <tr>
+        <td>@item.Member</td>
+        <td>@item.TotalTasks</td>
+        <td>@item.CompletedTasks</td>
+    </tr>
+}
+</table>
+
+<h3>Pending Tasks</h3>
+<table class="table">
+    <tr>
+        <th>Member</th>
+        <th>Task</th>
+        <th>Status</th>
+    </tr>
+@foreach (var task in Model.PendingTasks)
+{
+    <tr>
+        <td>@task.Member!.Role!.RoleName</td>
+        <td>@task.DutyTask!.Title</td>
+        <td>@task.Status</td>
+    </tr>
+}
+</table>
+
+<h3>Task Distribution by Role</h3>
+<table class="table">
+    <tr>
+        <th>Role</th>
+        <th>Task Count</th>
+    </tr>
+@foreach (var role in Model.TaskDistribution)
+{
+    <tr>
+        <td>@role.RoleName</td>
+        <td>@role.TaskCount</td>
+    </tr>
+}
+</table>
